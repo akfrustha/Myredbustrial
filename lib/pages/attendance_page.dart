@@ -6,10 +6,10 @@ class AttendancePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final attendance = [
-      {'subject': 'Mathematics', 'present': 22, 'total': 25},
-      {'subject': 'Physics', 'present': 23, 'total': 25},
+      {'subject': 'Iss', 'present': 22, 'total': 25},
+      {'subject': 'Cloud', 'present': 23, 'total': 25},
       {'subject': 'Programming', 'present': 25, 'total': 25},
-      {'subject': 'Database Systems', 'present': 24, 'total': 25},
+      {'subject': 'Database Systems', 'present': 14, 'total': 25},
     ];
 
     return Scaffold(

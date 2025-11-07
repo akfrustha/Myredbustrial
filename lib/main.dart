@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:myredbustrial/student.dart';
+import 'package:myredbustrial/teacher.dart';
 import 'package:myredbustrial/auma.dart';
 import 'loginscreen.dart';
 //mport 'package:myredbustrial/student.dart';
@@ -16,8 +17,8 @@ class MyWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-  //  return LoginScreen();
-    return StudentPage();
-   // return StudentPage();
+    return LoginScreen();
+  //  return StudentPage();
+   // return TeacherPage();
   }
 }
