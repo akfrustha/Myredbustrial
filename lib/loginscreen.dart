@@ -84,7 +84,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               end: Alignment.topLeft,
                               colors: [
                                 Color.fromARGB(255, 2, 52, 94),
-                                Colors.blue,
+                                Colors.blueGrey,
                               ],
                             ),
                             borderRadius: BorderRadius.circular(10.0),
@@ -122,7 +122,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             labelText: "Email",
                             prefixIcon: const Icon(
                               Icons.email_outlined,
-                              color: Colors.blue,
+                              color: Colors.blueGrey,
                             ),
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(12),
@@ -139,7 +139,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             labelText: "Password",
                             prefixIcon: const Icon(
                               Icons.lock_outline,
-                              color: Colors.blue,
+                              color: Colors.blueGrey,
                             ),
                             suffixIcon: IconButton(
                               color: Colors.black,
@@ -177,7 +177,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               "Forgot Password?",
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
-                                color: Colors.blue,
+                                color: Colors.blueGrey,
                               ),
                             ),
                           ],
@@ -191,7 +191,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           child: ElevatedButton(
                             onPressed: userLogin,
                             style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.blue,
+                              backgroundColor: Colors.blueGrey,
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(12),
                               ),
@@ -218,14 +218,14 @@ class _LoginScreenState extends State<LoginScreen> {
                               "Powered by ",
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
-                                color: Color.fromARGB(255, 131, 126, 126),
+                                color: Color.fromARGB(255, 139, 138, 138),
                               ),
                             ),
                             Text(
                               "It's Me (ICT) Team ",
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
-                                color: Colors.blue,
+                                color: Colors.blueGrey,
                               ),
                             ),
                             Text(

@@ -1,32 +1,42 @@
 import 'package:flutter/material.dart';
 import 'package:marquee/marquee.dart';
 import 'package:myredbustrial/auma.dart';
+import 'package:myredbustrial/loginscreen.dart';
 import 'package:myredbustrial/student2.dart';
 import 'package:myredbustrial/student3.dart';
+
+//featurers
+import 'package:myredbustrial/pages/profile_page.dart';
+import 'package:myredbustrial/pages/attendance_page.dart';
+import 'package:myredbustrial/pages/timetable_page.dart';
+import 'package:myredbustrial/pages/exam_page.dart';
+import 'package:myredbustrial/pages/track_page.dart';
+import 'package:myredbustrial/pages/apply_page.dart';
+import 'package:myredbustrial/pages/library_page.dart';
+import 'package:myredbustrial/pages/active_page.dart';
 
 class StudentPage extends StatelessWidget {
   const StudentPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-     final List<Map<String, dynamic>> features = [
-      {'title': 'Profile', 'icon': Icons.person},
-      {'title': 'Attendance', 'icon': Icons.assignment_turned_in},
-      {'title': 'Timetable', 'icon': Icons.schedule},
-      {'title': 'Exam', 'icon': Icons.edit_note},
-      {'title': 'Track Bus', 'icon': Icons.directions_bus},
-      {'title': 'Apply Leave', 'icon': Icons.beach_access},
-      {'title': 'Library', 'icon': Icons.local_library},
-      {'title': 'Active Pages', 'icon': Icons.pages},
-    ];
-
+    final List<Map<String, dynamic>> features = [
+  {'title': 'Profile', 'icon': Icons.person, 'page': const ProfilePage()},
+  {'title': 'Attendance', 'icon': Icons.assignment_turned_in, 'page': const AttendancePage()},
+  {'title': 'Timetable', 'icon': Icons.schedule, 'page': const TimetablePage()},
+  {'title': 'Exam', 'icon': Icons.edit_note, 'page': const ExamPage()},
+  {'title': 'Track Bus', 'icon': Icons.directions_bus, 'page': const TrackPage()},
+  {'title': 'Apply Leave', 'icon': Icons.beach_access, 'page': const ApplyPage()},
+  {'title': 'Library', 'icon': Icons.local_library, 'page': const LibraryPage()},
+  {'title': 'Active Pages', 'icon': Icons.pages, 'page': const ActivePage()},
+];
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: const Color.fromARGB(255, 161, 158, 158),
+        backgroundColor: const Color.fromARGB(255, 105, 127, 139),
          title: SizedBox(
           height: 30,
           child: Marquee(
-      text: '🎓 Marjan Ladies College (STR) ',
+      text: ' Marjan Ladies College (STR) ',
       style: const TextStyle(
         fontSize: 18,
         fontWeight: FontWeight.bold,
@@ -44,10 +54,107 @@ class StudentPage extends StatelessWidget {
           ),
           IconButton(
             icon: const Icon(Icons.logout, color: Colors.white),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const LoginScreen()),
+              );
+            },
           ),
         ],
       ),
+      drawer: Drawer(
+          child: ListView(
+            padding: EdgeInsets.all(0),
+            children: [
+            DrawerHeader(
+              decoration: BoxDecoration(
+                color: Colors.blueGrey,
+              ),
+              child: Text(
+                ' Main Menu',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 24,
+                ),
+              ),
+            ),
+            ListTile(
+              leading: const Icon(Icons.person),
+              title: const Text("Profile"),
+              onTap: () {
+                Navigator.pushNamed(context, '/profile');
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.check_circle_outline),
+              title: const Text("Attendance"),
+              onTap: () {
+                Navigator.pushNamed(context, '/attendance');
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.schedule),
+              title: const Text("Timetable"),
+              onTap: () {
+                Navigator.pushNamed(context, '/timetable');
+              },
+            ),
+
+                ListTile(
+              leading: const Icon(Icons.beach_access),
+              title: const Text("Apply leave"),
+              onTap: () {
+                Navigator.pushNamed(context, '/app');
+              },
+            ),
+                ListTile(
+              leading: const Icon(Icons.directions_bus),
+              title: const Text("TrackBus"),
+              onTap: () {
+                Navigator.pushNamed(context, '/track');
+              },
+            ),
+                ListTile(
+              leading: const Icon(Icons.pages),
+              title: const Text("Active page"),
+              onTap: () {
+                Navigator.pushNamed(context, '/active');
+              },
+            ),
+                ListTile(
+              leading: const Icon(Icons.local_library),
+              title: const Text("Library"),
+              onTap: () {
+                Navigator.pushNamed(context, '/library');
+              },
+            ),
+            
+            const Divider(),
+            // ListTile(
+            //   leading: const Icon(Icons.logout),
+            //   title: const Text("Logout"),
+            //   onTap: () {
+            //     Navigator.pop(context);
+            //   },
+            // ),
+            //   ListTile(
+            //     leading: const Icon(Icons.home),
+            //     title: const Text('Home'),
+            //     onTap: () {
+            //       Navigator.pop(context);
+            //     },
+            //   ),
+              ListTile(
+                leading: const Icon(Icons.settings),
+                title: const Text('Settings'),
+                onTap: () {
+                  Navigator.pop(context);
+                },
+              ),
+            ],
+          ),
+         ),
       body: SingleChildScrollView(
        
         child: Column(
@@ -60,7 +167,7 @@ class StudentPage extends StatelessWidget {
               margin: const EdgeInsets.symmetric(horizontal: 16),
               padding: const EdgeInsets.all(12),
               decoration: BoxDecoration(
-                color: const Color.fromARGB(255, 176, 178, 180),
+                color:  Colors.blueGrey,
                 borderRadius: BorderRadius.circular(8),
               ),
               child: Row(
@@ -118,6 +225,7 @@ class StudentPage extends StatelessWidget {
      // padding: const EdgeInsets.all(10.0),
       //child:
        GridView.builder(
+        padding: const EdgeInsets.all(10),
         physics: const NeverScrollableScrollPhysics(), // disables inner scroll
         shrinkWrap: true, // fits inside parent scroll
         itemCount: features.length,
@@ -130,15 +238,21 @@ class StudentPage extends StatelessWidget {
         itemBuilder: (context, index) {
           return GestureDetector(
             onTap: () {
+
+              Navigator.push(
+    context,
+    MaterialPageRoute(builder: (context) => features[index]['page']),
+  );
+
               // TODO: Add navigation for each feature page
               ScaffoldMessenger.of(context).showSnackBar(
                 SnackBar(content: Text('${features[index]['title']} clicked')),
               );
             },
             child: Card(
-              elevation: 5,
+              elevation: 6,
               shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(15)),
+                  borderRadius: BorderRadius.circular(20)),
               color: Colors.white,
               shadowColor: const Color.fromARGB(255, 63, 63, 63),
               child: Column(
@@ -147,7 +261,7 @@ class StudentPage extends StatelessWidget {
                   Icon(
                     features[index]['icon'],
                     size: 50,
-                    color: Colors.blueAccent,
+                    color:  Colors.blueGrey,
                   ),
                   const SizedBox(height: 10),
                   Text(
